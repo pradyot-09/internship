@@ -1,0 +1,53 @@
+<?php
+    include '../core/connect.php';
+    //session_start();
+    $email="kad@gmail.com";
+    $res=mysql_query("select user_id from user where email='$email'");
+    $row=mysql_fetch_assoc($res);
+    $user_id=$row['user_id'];
+    $result=mysql_query("select * from submission_status where user_id='$user_id'");
+    while($arr=mysql_fetch_assoc($result)){
+        echo $arr['lab_id'];
+        $lab_id=$arr['lab_id'];
+        $name=mysql_query("select lab_name from lab where lab_id='$lab_id'");
+        $lab_info=mysql_fetch_assoc($name);
+        echo $lab_info['lab_name'];
+        echo "<br>";
+        echo $arr['r0'];
+        echo "<br>";
+        $date = strtotime($arr['r0_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<br>";
+        echo $arr['r1'];
+        echo "<br>";
+        $date = strtotime($arr['r1_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<br>";
+        echo $arr['r2'];
+        echo "<br>";
+        $date = strtotime($arr['r2_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<br>";
+        echo $arr['r3'];
+        echo "<br>";
+        $date = strtotime($arr['r3_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<br>";
+        echo $arr['r4'];
+        echo "<br>";
+        $date = strtotime($arr['r4_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<br>";
+        echo $arr['r5'];
+        echo "<br>";
+        $date = strtotime($arr['r5_date']);
+        $date = strtotime("+10 day", $date);
+        echo date('M d, Y', $date);
+        echo "<hr>";
+    }
+?>
